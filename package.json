@@ -1,0 +1,17 @@
+{
+  "name": "npm_twt",
+  "version": "1.0.0",
+  "description": "my most consistent twitter usage? (not clickbait)",
+  "main": "twt.js",
+  "scripts": {
+    "start": "node twt.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "twitter": "^1.7.1",
+    "twitter-v2": "^1.1.0"
+  }
+}
