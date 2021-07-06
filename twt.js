@@ -56,26 +56,31 @@ const quotes = [
   + " trusted."
 ];
 
-var tweet = pickQuote(quotes);
+// Tweet something once a day
+setInterval(function() { sendTweet(quotes); }, 86400000);
 
-// Pick quote by generating random number as array index
-function pickQuote(quotes) {
-  var numQuotes = quotes.length;
-  var randNum = Math.floor(Math.random() * numQuotes);
-  return quotes[randNum];
-}
+function sendTweet(quotes) {
+  var tweet = pickQuote(quotes);
 
-// Set tweet
-tweet = {
-  status: tweet
-}
+  // Pick quote by generating random number as array index
+  function pickQuote(quotes) {
+    var numQuotes = quotes.length;
+    var randNum = Math.floor(Math.random() * numQuotes);
+    return quotes[randNum];
+  }
 
-// Tweet with Twitter API
-client.post("statuses/update", tweet, posted);
+  // Set tweet
+  tweet = {
+    status: tweet
+  }
 
-// Check for errors
-function posted(error, data, response) {
-  if (error) {
-    console.log(error);
+  // Tweet with Twitter API
+  client.post("statuses/update", tweet, posted);
+
+  // Check for errors
+  function posted(error, data, response) {
+    if (error) {
+      console.log(error);
+    }
   }
 }
