@@ -82,5 +82,8 @@ function sendTweet(quotes) {
     if (error) {
       console.log(error);
     }
+    else {
+      console.log("Tweeted");
+    }
   }
 }
