@@ -56,8 +56,10 @@ const quotes = [
   + " trusted."
 ];
 
-// Tweet something once a day
-setInterval(function() { sendTweet(quotes); }, 86400000);
+sendTweet(quotes);
+
+// Tweet something once every few minutes
+setInterval(function() { sendTweet(quotes); }, 600000);
 
 function sendTweet(quotes) {
   var tweet = pickQuote(quotes);
