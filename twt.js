@@ -59,7 +59,7 @@ const quotes = [
 sendTweet(quotes);
 
 // Tweet something once every few minutes
-setInterval(function() { sendTweet(quotes); }, 600000);
+setInterval(function() { sendTweet(quotes); }, 60000);
 
 function sendTweet(quotes) {
   var tweet = pickQuote(quotes);
