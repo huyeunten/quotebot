@@ -8,7 +8,10 @@ const client = new Twitter({
   consumer_key: process.env.CONSUMER_KEY,
   consumer_secret: process.env.CONSUMER_SECRET,
   access_token_key: process.env.ACCESS_TOKEN_KEY,
-  access_token_secret: process.env.ACCESS_TOKEN_SECRET
+  access_token_secret: process.env.ACCESS_TOKEN_SECRET,
+  request_options: {
+    proxy: 'https://twitter4spanreed.herokuapp.com/'
+  }
 })
 
 // Quote pool. See source.txt for sources
@@ -58,8 +61,8 @@ const quotes = [
 
 sendTweet(quotes);
 
-// Tweet something once every few minutes
-setInterval(function() { sendTweet(quotes); }, 60000);
+// Tweet something once a day
+setInterval(function() { sendTweet(quotes); }, 86400000);
 
 function sendTweet(quotes) {
   var tweet = pickQuote(quotes);
